@@ -1,0 +1,44 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    {{userName}}
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav-content>
+
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{userDetails?.name}}</mat-card-title>
+          <mat-card-subtitle>{{userDetails?.login}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <img mat-card-image [src]="userDetails?.avatar_url">
+          <p matLine>
+            <b>Company:</b> {{userDetails?.company}}<br>
+            <b>Location:</b> {{userDetails?.location}}<br>
+            <b>Bio:</b> {{userDetails?.bio}}
+          </p>
+        </mat-card-content>
+         <mat-card-footer>
+          <p align="center">{{userDetails?.blog}}</p>
+         </mat-card-footer>
+      </mat-card>
+      <h3>Repos</h3>
+      <mat-list cols="4">
+          <mat-list-item *ngFor="let repo of reposList">
+              <mat-icon>folder</mat-icon>
+              <p matLine>{{repo?.name}}</p>
+          </mat-list-item>
+      </mat-list>
+
+      <h3>Followers</h3>
+      <mat-list cols="4">
+          <mat-list-item *ngFor="let repo of reposList">
+              <mat-icon>person</mat-icon>
+              <p matLine>{{repo?.name}}</p>
+          </mat-list-item>
+      </mat-list>
+  </mat-sidenav-content>
+
+
+</mat-sidenav-container>
